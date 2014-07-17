@@ -9,7 +9,7 @@ There is no wiring required as this library operates with internal micro control
 
 Contributions are welcome under the [Apache Public License version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
 
-For wiring instructions please refer to the [sample schematics] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
+For wiring instructions for calibration please refer to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/VoltageReference/master/examples/EEPROMCalibration/calibration.png).
 
 
 Usage
@@ -73,4 +73,6 @@ Calibrating for Vcc 4870mV
 Calibration value is 1126400
 ```
 
-Bingo, that is the number you should provide as input parameter to the `VoltageReference::begin()` function ***for this specific board/micro controller***. You can use the calibration sketch to store this value into the internal micro controller EEPROM memory and read it from there in the future: just send `S` on the serial console to have it stored in the default location (using the very last 3 bytes of the internal flash memory).
+Bingo! That is the number you should provide as input parameter to the `VoltageReference::begin()` function ***for this specific board/micro controller***. 
+
+You can use the calibration sketch to store this value into the internal micro controller EEPROM memory and read it from there in the future: just send `S` on the serial console to have it stored in the default location (using the very last 3 bytes of the internal flash memory).
