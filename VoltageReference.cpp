@@ -1,5 +1,5 @@
 /*
- VoltageSource.cpp - VoltageSource library
+ VoltageReference.cpp - VoltageReference library
  Copyright (c) 2014 Roberto Lo Giacco.  All right reserved.
 
  This library is free software; you can redistribute it and/or
