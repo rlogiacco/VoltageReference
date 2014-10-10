@@ -21,8 +21,6 @@
 #define _VOLTAGE_REFERENCE_
 
 #include "Arduino.h"
-#define SERIAL_DEBUG false
-#include <SerialDebug.h>
 
 #define DEFAULT_REFERENCE_CALIBRATION 1126400L
 #define INVALID_REFERENCE_CALIBRATION 16777215L
@@ -33,35 +31,35 @@
 #define mergeBytes(hi, mid, low) ((((long)hi) << 16) | ((mid << 8) | ((low & 0xFF) & 0xFFFF)))
 
 class VoltageReference {
-private:
-	uint32_t calibration;
+	private:
+		uint32_t calibration;
 
-	/**
-	 * Reads the internal voltage reference against Vcc
-	 */
-	uint16_t readInternalRef();
-public:
+		/**
+		 * Reads the internal voltage reference against Vcc
+		 */
+		uint16_t readInternalRef();
+	public:
 
-	/**
-	 * Initializes the library by setting the calibration value for the 1.1V reference
-	 * either to the provided value or to its default
-	 */
-	void begin(uint32_t reference = DEFAULT_REFERENCE_CALIBRATION);
+		/**
+		 * Initializes the library by setting the calibration value for the 1.1V reference
+		 * either to the provided value or to its default
+		 */
+		void begin(uint32_t reference = DEFAULT_REFERENCE_CALIBRATION);
 
-	/**
-	 * Initializes the library by setting the calibration value for the 1.1V reference
-	 * from a three bytes representation
-	 */
-	void begin(uint8_t hi, uint8_t mid, uint8_t low);
+		/**
+		 * Initializes the library by setting the calibration value for the 1.1V reference
+		 * from a three bytes representation
+		 */
+		void begin(uint8_t hi, uint8_t mid, uint8_t low);
 
-	/**
-	 * Reads the input voltage value applying any necessary calibration
-	 */
-	uint16_t readVcc();
+		/**
+		 * Reads the input voltage value applying any necessary calibration
+		 */
+		uint16_t readVcc();
 
-	/**
-	 * Returns the calibration value to be used for the specified input voltage
-	 */
-	uint32_t calibrate(uint16_t milliVolt);
+		/**
+		 * Returns the calibration value to be used for the specified input voltage
+		 */
+		uint32_t calibrate(uint16_t milliVolt);
 };
 #endif // _VOLTAGE_REFERENCE_

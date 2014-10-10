@@ -64,5 +64,5 @@ uint16_t VoltageReference::readVcc() {
 }
 
 uint32_t VoltageReference::calibrate(uint16_t milliVolts) {
-	return ((uint32_t)milliVolts * readInternalRef());
+	return ((uint32_t) milliVolts * readInternalRef());
 }
