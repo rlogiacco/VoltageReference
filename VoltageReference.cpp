@@ -35,7 +35,7 @@ void VoltageReference::begin(uint32_t calibration) {
 void VoltageReference::begin(uint8_t hi, uint8_t mid, uint8_t low) {
 	VoltageReference::calibration = mergeBytes(hi, mid, low);
 	if (calibration == INVALID_REFERENCE_CALIBRATION)
-		calibration = DEFAULT_REFERENCE_CALIBRATION;
+		VoltageReference::calibration = DEFAULT_REFERENCE_CALIBRATION;
 }
 
 uint16_t VoltageReference::readInternalRef() {
