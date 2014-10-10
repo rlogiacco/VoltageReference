@@ -23,7 +23,7 @@
 #include "Arduino.h"
 
 #define DEFAULT_REFERENCE_CALIBRATION 1126400L
-#define INVALID_REFERENCE_CALIBRATION 16777215L
+#define INVALID_REFERENCE_CALIBRATION 0xFFFFFFL
 
 #define getHiByte(calibration) (calibration >> 16)
 #define getMidByte(calibration) (calibration >> 8)
