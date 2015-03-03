@@ -17,16 +17,8 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-/******************************************************************************
- * Includes
- ******************************************************************************/
-
 #include "Arduino.h"
 #include "VoltageReference.h"
-
-/******************************************************************************
- * User API
- ******************************************************************************/
 
 void VoltageReference::begin(uint32_t calibration) {
 	VoltageReference::calibration = calibration;
@@ -40,7 +32,7 @@ void VoltageReference::begin(uint8_t hi, uint8_t mid, uint8_t low) {
 
 uint16_t VoltageReference::readInternalRef() {
 	// Read 1.1V reference against AVcc
-	// Set the reference to Vcc and the measurement to the internal 1.1V reference
+	// Set the input to Vcc and the reference to the internal 1.1V reference
 #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284P__)
 	ADMUX = _BV(REFS0) | _BV(MUX4) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
 #elif defined (__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
