@@ -55,7 +55,7 @@ uint16_t VoltageReference::readVcc() {
 }
 
 const uint16_t VoltageReference::internalValue() {
-	return (calibration + (512)) / 1024;
+	return (calibration + (ANALOG_MAX_VALUE / 2)) / ANALOG_MAX_VALUE;
 }
 
 

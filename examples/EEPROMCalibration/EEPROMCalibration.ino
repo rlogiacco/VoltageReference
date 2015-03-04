@@ -120,7 +120,7 @@ void parse() {
 		Serial.print("Calibration value is ");
 		Serial.println(calibration);
 		Serial.print("Real bandgap voltage is ");
-		Serial.print((calibration + (512)) / 1024);
+		Serial.print((calibration + (ANALOG_MAX_VALUE / 2)) / ANALOG_MAX_VALUE);
 		Serial.println("mV");
 		vRef.begin(calibration);
 	}
