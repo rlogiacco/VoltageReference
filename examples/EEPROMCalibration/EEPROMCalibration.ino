@@ -81,6 +81,9 @@ void parse() {
 			Serial.print("Calculated input voltage is ");
 			Serial.print(vRef.readVcc());
 			Serial.println("mV");
+			Serial.print("Real bandgap voltage is ");
+			Serial.print(vRef.internalValue());
+			Serial.println("mV");
 		}  else if (c == 'a' || c == 'A') {
 			if (Serial.available() > 0) {
 				c = Serial.read();
@@ -116,6 +119,9 @@ void parse() {
 		uint32_t calibration = vRef.calibrate(voltage);
 		Serial.print("Calibration value is ");
 		Serial.println(calibration);
+		Serial.print("Real bandgap voltage is ");
+		Serial.print((calibration + (512)) / 1024);
+		Serial.println("mV");
 		vRef.begin(calibration);
 	}
 }

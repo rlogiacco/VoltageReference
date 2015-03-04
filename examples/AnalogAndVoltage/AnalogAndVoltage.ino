@@ -24,9 +24,10 @@ void loop() {
 	Serial.print("mV");
 	delay(50);
 
-	analogReference(INTERNAL);
-	int precise = analogRead(A1);
-	Serial.print("Precise analog pin voltage is ");
-	Serial.print(analog / 1024 * vRef.internalValue());
-	Serial.print("mV");
+	// For input voltages below 1V
+	//analogReference(INTERNAL);
+	//int precise = analogRead(A1);
+	//Serial.print("Precise analog pin voltage is ");
+	//Serial.print(analog / 1024 * vRef.internalValue());
+	//Serial.print("mV");
 }
