@@ -30,6 +30,9 @@ void loop() {
   int vcc = vRef.readVcc();
   // vcc is the voltage at Vcc pin
   
+  int v11 = vRef.internalValue();
+  // v11 is the real internal voltage reference value
+  
   int a0 = analogRead(A0);
   
   // usually to convert a0 to millivolts
@@ -37,6 +40,16 @@ void loop() {
 
   // more precise result can be obtained with
   int betterPinV = a0 / 1024 * vcc;
+  
+  // when playing with low voltages
+  analogReference(INTERNAL);
+  int a1 = analogRead(A1);
+
+  // usually to convert a1 to millivolts
+  int oldPinLowV = a1 / 1024 * 1100;
+  
+  // the most accurate low voltage readings are obtained with
+  int accuratePinLowV = a1 / 1024 * v11;
 }
 ```
 
@@ -68,11 +81,11 @@ Now send `R` and let's compare the voltage measured by your micro controller wit
 
 In case they differ slightly then here we can step in and calibrate the micro controller so that it will closely match your multimeter in the future (if you used a decent multimeter that should improve your readings).
 
-By the menu above, you just send on serial the 4 digits representing your multimeter reading in millivolts: 4.87 * 1000 = 4870. You should get something like the following on the serial console, with the last number being a little higher or lower than the displayed one:
+By the menu above, you just send on serial the 4 digits representing your multimeter reading in millivolts: 4.97 * 1000 = 4970. You should get something like the following on the serial console, with the last number being a little higher or lower than the displayed one:
 
 ```
-Calibrating for Vcc 4870mV
-Calibration value is 1126400
+Calibrating for Vcc 4970mV
+Calibration value is 1123220
 ```
 
 Bingo! That is the number you should provide as input parameter to the `VoltageReference::begin()` function ***for this specific board/micro controller***. 
