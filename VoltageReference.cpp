@@ -31,8 +31,7 @@ void VoltageReference::begin(uint8_t hi, uint8_t mid, uint8_t low) {
 }
 
 uint16_t VoltageReference::readInternalRef() {
-	// Read 1.1V reference against AVcc
-	// Set the input to Vcc and the reference to the internal 1.1V reference
+	// Read 1.1V reference against Vcc
 #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284P__)
 	ADMUX = _BV(REFS0) | _BV(MUX4) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
 #elif defined (__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
@@ -54,6 +53,11 @@ uint16_t VoltageReference::readInternalRef() {
 uint16_t VoltageReference::readVcc() {
 	return calibration / readInternalRef();
 }
+
+const uint16_t VoltageReference::internalValue() {
+	return calibration / 1023;
+}
+
 
 uint32_t VoltageReference::calibrate(uint16_t milliVolts) {
 	return ((uint32_t) milliVolts * readInternalRef());

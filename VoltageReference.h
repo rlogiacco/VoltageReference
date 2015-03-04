@@ -61,5 +61,11 @@ class VoltageReference {
 		 * Returns the calibration value to be used for the specified input voltage
 		 */
 		uint32_t calibrate(uint16_t milliVolt);
+
+		/**
+		 * The calibrated internal reference voltage
+		 */
+		const uint16_t internalValue();
+
 };
 #endif // _VOLTAGE_REFERENCE_
