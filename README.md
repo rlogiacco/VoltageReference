@@ -1,4 +1,4 @@
-VoltageReference
+VoltageReference [![Build Status](https://travis-ci.org/rlogiacco/VoltageReference.svg?branch=master)](https://travis-ci.org/rlogiacco/VoltageReference)
 ================
 
 Many projects need to know the voltage present at their Vcc pin (also referred as 5V or 3V3), sometimes to monitor their own battery level (voltage gets lower during discharge), sometimes to level up analog reads (reading an analog pin implies a voltage comparison).
