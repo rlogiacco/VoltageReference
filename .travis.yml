@@ -11,7 +11,7 @@ before_install:
   
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/VoltageReference
-  - arduino --install-library "EEPROM"
+#  - arduino --install-library "EEPROM"
 script:
   - arduino --verify --board ${BOARD} $PWD/examples/AnalogAndVoltage/AnalogAndVoltage.ino
   - arduino --verify --board ${BOARD} $PWD/examples/EEPROMCalibration/EEPROMCalibration.ino
