@@ -9,25 +9,27 @@ void setup() {
 	vRef.begin();
 }
 
-void loop() {
-	digitalWrite(13, HIGH);
-	delay(500);
-	digitalWrite(13, LOW);
-	delay(500);
 
-	int analog = analogRead(A0);
+#define DETECT_PIN A0
+
+// set this to true for voltages below 1V
+#define LOW_VOLTAGE false
+
+void loop() {
+
+#if (LOW_VOLTAGE)
+	analogReference(INTERNAL);
+#endif
+	int analog = analogRead(DETECT_PIN);
 	int vcc = vRef.readVcc();
-	Serial.print("Input voltage is ");
+	Serial.print("Board voltage is ");
 	Serial.print(vcc);
 	Serial.print("mV, analog pin voltage is ");
-	Serial.print(analog / 1024 * vcc);
+#if (LOW_VOLTAGE)
+	Serial.print(vRef.internalValue() * analog / 1023);
+#elif
+	Serial.print(vcc * analog / 1023);
+#endif
 	Serial.print("mV");
 	delay(50);
-
-	// For input voltages below 1V
-	//analogReference(INTERNAL);
-	//int precise = analogRead(A1);
-	//Serial.print("Precise analog pin voltage is ");
-	//Serial.print(analog / 1024 * vRef.internalValue());
-	//Serial.print("mV");
 }
