@@ -27,7 +27,7 @@ void loop() {
 	Serial.print("mV, analog pin voltage is ");
 #if (LOW_VOLTAGE)
 	Serial.print(vRef.internalValue() * analog / 1023);
-#elif
+#else
 	Serial.print(vcc * analog / 1023);
 #endif
 	Serial.print("mV");
