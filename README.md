@@ -15,6 +15,12 @@ For wiring instructions for calibration please refer to the [sample breadboard] 
 
 This library is largely based on [Coding Badly](http://forum.arduino.cc/index.php?action=profile;u=10859)'s and [Scott Daniels](http://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/)' work: I just wrapped their code in an easy to use library.
 
+<!-- toc -->
+
+- [Usage](#usage)
+- [Calibration](#calibration)
+
+<!-- tocstop -->
 
 Usage
 ============
