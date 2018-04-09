@@ -9,9 +9,11 @@ Most Atmel microcontrollers embed an internal voltage reference which can be use
 
 There is no wiring required as this library operates with internal microcontroller components only, but if you want to calibrate your board/microcontroller (highly recommended) two wires and a multimeter will be necessary.
 
-Contributions are welcome under the [Apache Public License version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
+Contributions are welcome under the [Apache Public License version 2.0] (http://www.apache.org/licenses/LICENSE-2.0.html).
 
 For wiring instructions for calibration please refer to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/VoltageReference/master/examples/EEPROMCalibration/calibration.png).
+
+> **NOTE**, if your goal is to monitor the battery level of a battery powered project, please refer to my [BatterySense](https://github.com/rlogiacco/BatterySense) project.
 
 This library is largely based on [Coding Badly](http://forum.arduino.cc/index.php?action=profile;u=10859)'s and [Scott Daniels](http://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/)' work: I just wrapped their code in an easy to use library.
 
