@@ -65,7 +65,7 @@ class VoltageReference {
 		/**
 		 * The calibrated internal reference voltage
 		 */
-		const uint16_t internalValue();
+		uint16_t internalValue();
 
 };
 #endif // _VOLTAGE_REFERENCE_

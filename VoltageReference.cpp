@@ -53,7 +53,7 @@ uint16_t VoltageReference::readVcc() {
 	return calibration / readInternalRef();
 }
 
-const uint16_t VoltageReference::internalValue() {
+uint16_t VoltageReference::internalValue() {
 	return (calibration + (ANALOG_MAX_VALUE / 2)) / ANALOG_MAX_VALUE;
 }
 
