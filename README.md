@@ -29,7 +29,7 @@ Usage
 
 This library comprises only one class `VoltageReference` which requires to be initialized by invoking it's `begin()` function which can optionally accept a calibration value (more on calibration later on) in two formats: either as an unsigned long or as three single bytes (to ease calibration value storage into internal EEPROM).
 
-```
+```cpp
 VoltageReference vRef = VoltageReference();
 
 void setup() {
@@ -101,3 +101,19 @@ Calibration value is 1123220
 Bingo! That is the number you should provide as input parameter to the `VoltageReference::begin()` function ***for this specific board/micro controller***. 
 
 You can use the calibration sketch to store this value into the internal microcontroller EEPROM memory and read it from there in the future: just send `S` on the serial console to have it stored in the default location (using the very last 3 bytes of the internal flash memory).
+
+In your sketch, use the following code to initialize the library, but remember, the calibration value changes per each board/processor you use!
+
+```cpp
+#include <EEPROM.h>
+#include <VoltageReference.h>
+
+// sets the storage area to the very end of the EEPROM, matching the one used by the calibration sketch
+#define VREF_EEPROM_ADDR (E2END - 2)
+
+VoltageReference vRef;
+
+void setup() {
+  vRef.begin(EEPROM.read(VREF_EEPROM_ADDR), EEPROM.read(VREF_EEPROM_ADDR + 1), EEPROM.read(VREF_EEPROM_ADDR + 2));
+}
+```
