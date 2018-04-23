@@ -5,7 +5,7 @@ VoltageReference vRef;
 void setup() {
 	Serial.begin(9600);
 	while (!Serial);
-	Serial.println("Calibrating voltage reference");
+	Serial.println(F("Calibrating voltage reference"));
 	vRef.begin();
 }
 
@@ -22,14 +22,14 @@ void loop() {
 #endif
 	int analog = analogRead(DETECT_PIN);
 	int vcc = vRef.readVcc();
-	Serial.print("Board voltage is ");
+	Serial.print(F("Board voltage is "));
 	Serial.print(vcc);
-	Serial.print("mV, analog pin voltage is ");
+	Serial.print(F("mV, analog pin voltage is "));
 #if (LOW_VOLTAGE)
 	Serial.print(vRef.internalValue() * analog / 1023);
 #else
 	Serial.print(vcc * analog / 1023);
 #endif
-	Serial.print("mV");
+	Serial.print(F("mV"));
 	delay(50);
 }
