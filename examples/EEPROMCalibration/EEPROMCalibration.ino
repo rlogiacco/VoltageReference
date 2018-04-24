@@ -104,7 +104,7 @@ void parse() {
 		} else if (c == 'h' || c == 'H') {
 			menu();
 		}
-	} else {
+	} else if (isdigit(c)) {
 		char* buffer = new char[5];
 		uint8_t i = 0;
 		while (isdigit(c)) {
