@@ -75,7 +75,7 @@ The principle is to use the internal microcontroller voltage reference of 1.1V t
 While this usually already produces a better result than just assuming your board is powered perfectly and stable, this still introduces some variations as the internal microcontroller voltage reference is subject to construction differences (impurities in the materials and that kind of stuff): to improve a little more your readings accuracy a per board/microcontroller calibration step is strongly recommended.
 
 Using a multimeter (better the multimeter accuracy, better the calibration, better analog readings) you need to measure the voltage difference between the Vcc/5V pin and GND pin when your board is powered but with no load (nothing connected to either of those two pins). 
-Let's say your multimeter reads 4.87V.
+Let's say your multimeter reads 4.97V.
 
 Now load the `EEPROMCalibration` example sketch onto your board/microcontroller and run it opening a connection to the serial port: you should obtain the following output.
 
