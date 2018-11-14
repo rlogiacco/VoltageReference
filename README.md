@@ -1,6 +1,6 @@
 ### &#x26A0; **IMPORTANT**
  
-> Please, for support requests use the [VoltageReference Forum](https://arduinolibs.freeflarum.com/t/voltagereference), running a search before submitting a new case: do not abuse the Github issue tracker.
+> Please, for support requests use the [Arduino StackExchange](https://arduino.stackexchange.com/questions/tagged/voltageref-lib), ensuring to add the `voltageref-lib` tag to your question: do not abuse the Github issue tracker.
 
 VoltageReference [![Build Status][travis-status]][travis]
 =============
