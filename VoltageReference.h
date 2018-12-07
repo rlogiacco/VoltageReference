@@ -16,8 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _VOLTAGE_REFERENCE_
-#define _VOLTAGE_REFERENCE_
+#ifndef VOLTAGE_REFERENCE_H_
+#define VOLTAGE_REFERENCE_H_
 
 #include "Arduino.h"
 
@@ -68,4 +68,4 @@ class VoltageReference {
 		uint16_t internalValue();
 
 };
-#endif // _VOLTAGE_REFERENCE_
+#endif // VOLTAGE_REFERENCE_H_
