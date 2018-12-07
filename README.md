@@ -28,8 +28,7 @@ This library is largely based on [Coding Badly](http://forum.arduino.cc/index.ph
 
 <!-- tocstop -->
 
-Usage
-============
+# Usage
 
 This library comprises only one class `VoltageReference` which requires to be initialized by invoking it's `begin()` function which can optionally accept a calibration value (more on calibration later on) in two formats: either as an unsigned long or as three single bytes (to ease calibration value storage into internal EEPROM).
 
@@ -67,8 +66,7 @@ void loop() {
 }
 ```
 
-Calibration
-============
+# Calibration
 
 The principle is to use the internal microcontroller voltage reference of 1.1V to calculate the voltage powering the board and then use that as a reference instead of assuming your board is powered by a 5V or a 3.3V source: the latter is a big assumption in many situations, especially those where your voltage source is a battery (which produces a variable voltage).
 
